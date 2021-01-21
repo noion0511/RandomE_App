@@ -1,4 +1,3 @@
 package com.noion.randome.api.request
 
-class MessageRequest {
-}
+data class MessageRequest(val content: String)

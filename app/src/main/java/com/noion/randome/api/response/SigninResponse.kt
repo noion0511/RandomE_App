@@ -1,4 +1,7 @@
 package com.noion.randome.api.response
 
-class SigninResponse {
-}
+data class SigninResponse(
+    val token: String,
+    val refreshToken: String,
+    val nickName: String
+)
