@@ -41,7 +41,7 @@ class TokenAuthenticator : Authenticator {
         }
 
     private fun handleTokenResponse(tokenResponse: ApiResponse<String>) {
-        if(tokenResponse.succes && tokenResponse.data != null) {
+        if(tokenResponse.success && tokenResponse.data != null) {
             Auth.refreshToken(tokenResponse.data)
         } else {
             Auth.signout()
