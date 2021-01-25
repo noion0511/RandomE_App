@@ -1,8 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".domain.signin.SigninActivity">
+    <!-- data 태크 내부에 variable 태그로 뷰모델로 사용할 프로퍼티명과 뷰모델 클래스를 지정해주면
+         이 레이아웃 내에서 해당 뷰모델의 프로퍼티들을 사용할 수 있다.-->
+    <data>
+        <variable
+            name="viewModel"
+            type="com.noion.randome.domain.signin.SigninViewModel"
+            />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f2d6e0"
+    android:padding="20dp"
+    tools:context=".domain.signin.SigninActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Random Chat"
+            android:textAlignment="center"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/nickName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 닉네임을 입력하는 필드를 선언한 AppCompatEditText 요소로, 입력되는 텍스트와 SigninViewModel의
+             닉네임 프로퍼티와 양방향 바인딩을 선언, 양방향 바인딩은 뷰모델의 프로퍼티 값을 변경하면 UI도
+             변화하고 그 반대도 적용, 단방향은 뷰모델의 프로퍼티 값 변경을 뷰에 반영만 가능-->
+        <EditText
+            android:id="@+id/nickName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:ems="10"
+            android:hint="Enter your nick name"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:text="@={viewModel.nickname}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 안드로이드 데이터 바인딩 라이브러리는 텍스트와 같은 데이터의 바인딩 뿐만 아니라
+             핸들러 바인딩까지 지원하고 있는데 버튼을 클릭했을 때 동작해야할 이벤트 리스너의 바인딩 같은
+             경우가 있다.-->
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="@{(v) -> viewModel.signIn()}"
+            android:text="start"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nickName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
