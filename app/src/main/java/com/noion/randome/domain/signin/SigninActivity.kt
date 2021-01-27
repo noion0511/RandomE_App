@@ -10,6 +10,8 @@ import com.noion.randome.api.response.ApiResponse
 import com.noion.randome.api.response.SigninResponse
 import com.noion.randome.databinding.ActivitySigninBinding
 import com.noion.randome.domain.Auth
+import com.noion.randome.domain.randomchat.RandomChatActivity
+import splitties.activities.start
 import java.lang.ref.WeakReference
 
 class SigninActivity : AppCompatActivity(), SigninNavigator {
@@ -38,6 +40,9 @@ class SigninActivity : AppCompatActivity(), SigninNavigator {
     }
 
     override fun startRandomChatActivity(response: ApiResponse<SigninResponse>) {
+        //val intent = Intent(this, RandomChatActivity::class.java)
+        //startActivity(intent)와 같은 코드
+        start<RandomChatActivity>()
         finish()
     }
 }
