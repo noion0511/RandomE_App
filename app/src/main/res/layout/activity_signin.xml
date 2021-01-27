@@ -3,18 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".domain.signin.SigninActivity">
+
     <!-- data 태크 내부에 variable 태그로 뷰모델로 사용할 프로퍼티명과 뷰모델 클래스를 지정해주면
          이 레이아웃 내에서 해당 뷰모델의 프로퍼티들을 사용할 수 있다.-->
+
     <data>
         <variable
             name="viewModel"
             type="com.noion.randome.domain.signin.SigninViewModel"
             />
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#f2d6e0"
+    android:background="@color/gray"
     android:padding="20dp"
     tools:context=".domain.signin.SigninActivity">
 
@@ -57,10 +60,11 @@
         <Button
             android:id="@+id/button"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="10dp"
             android:onClick="@{(v) -> viewModel.signIn()}"
             android:text="start"
+            android:backgroundTint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/nickName" />

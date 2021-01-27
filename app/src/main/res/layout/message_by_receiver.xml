@@ -1,56 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="message"
+            type="com.noion.randome.domain.randomchat.MessageModel" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_margin="10dp"
-            tools:srcCompat="@tools:sample/avatars"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="3dp"
-                android:layout_weight="1"
-                android:text="졸린 알로에" />
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                tools:srcCompat="@tools:sample/avatars" />
-        </LinearLayout>
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/chatting_name_receiver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@{message.collapseName ? 20 : 0}"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:visibility="@{message.collapseName ? View.GONE : View.VISIBLE}"
+            android:text="@{message.nickName, default=상대"/>
+
+        <TextView
+            android:id="@+id/chatting_content_receiver"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|left"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="1"
-            android:gravity="bottom|left"
-            android:text="15:46" />
+            android:layout_gravity="left"
+            android:layout_margin="5dp"
+            android:background="@drawable/chatting_edge_gray"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="@{message.content, default=메세지}"
+            android:textSize="14dp"
+            android:textColor="@color/black"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
 
     </LinearLayout>
-
-</LinearLayout>
+</layout>
