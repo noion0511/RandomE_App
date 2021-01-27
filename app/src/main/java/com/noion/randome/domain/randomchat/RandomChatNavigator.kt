@@ -1,4 +1,5 @@
 package com.noion.randome.domain.randomchat
 
-class RandomChatNavigator {
+interface RandomChatNavigator {
+    fun onMessage(messageModel: MessageModel)
 }
