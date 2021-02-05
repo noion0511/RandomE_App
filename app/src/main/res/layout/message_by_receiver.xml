@@ -25,7 +25,7 @@
             android:textSize="14dp"
             android:textStyle="bold"
             android:visibility="@{message.collapseName ? View.GONE : View.VISIBLE}"
-            android:text="@{message.nickName, default=상대"/>
+            android:text="@{message.nickName, default=상대}"/>
 
         <TextView
             android:id="@+id/chatting_content_receiver"
