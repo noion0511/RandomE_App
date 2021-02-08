@@ -18,7 +18,7 @@ class SigninViewModel(app: Application) : AndroidViewModel(app) {
     //뷰모델 클래스의 프로퍼티로 SigninNavigator를 WeakReference로 감싼다.
     //이렇게 참조된 SigninNavigator 객체는 WeakReference 이외의 객체 참조가 없다면
     //GC 대상이 되어 컨텍스트를 들고 있더라도 메모리릭을 일으키지 않는다.
-    var navigatorRef: WeakReference<SigninNavigator>? = null
+    var navigatorRef: WeakReference <SigninNavigator>? = null
     private val navigator get() = navigatorRef?.get()
     var nickname = MutableLiveData("") //데이터바인딩 라이브러리에서도 프로퍼티를 MutableLiveData 타입으로 선언하면 UI코드에서 동적으로 사용될 수 있는 듯?
 

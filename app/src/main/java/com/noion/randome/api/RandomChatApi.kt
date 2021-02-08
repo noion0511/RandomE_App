@@ -9,7 +9,7 @@ import retrofit2.http.Body
 import retrofit2.http.POST
 import retrofit2.http.Query
 
-//사용할 인터페이스 정의, 토큰을 기준으로 일반 API, 토큰 갱신용 API 인터페이스를 구분
+//사용할 인터페이스 정의, 토큰을 기준으로 일반 API, 토큰 갱신용 API 인터페이스를 구분,, 왜 구분했을까??
 //RandomChatApi는 일반 Api -> 채팅에 진입하는 signin과 메세지를 전송하는 sendMessage
 interface RandomChatApi {
 

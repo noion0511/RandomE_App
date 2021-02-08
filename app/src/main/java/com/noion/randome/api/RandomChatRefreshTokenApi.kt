@@ -6,7 +6,7 @@ import kotlinx.coroutines.withContext
 import retrofit2.http.POST
 import retrofit2.http.Query
 
-//코튼 갱신용 api 인터페이스
+//토큰 갱신용 api 인터페이스
 interface RandomChatRefreshTokenApi {
 
     @POST("/api/v1/randomChat/refresh_token")

@@ -12,8 +12,9 @@ class App: Application() {
 
     companion object {
         lateinit var instance: App
-        const val API_HOST = "http://10.0.2.2"
+        const val HOST = "172.18.102.124"
+        const val API_HOST = "http://$HOST"
         const val API_PORT = 8080
-        const val WEBSOCKET_ENDPOINT = "ws://10.0.2.2:8080/ws/randomchat"
+        const val WEBSOCKET_ENDPOINT = "ws://$HOST:8080/ws/randomchat"
     }
 }
